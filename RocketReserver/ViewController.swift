@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UITableViewController {
 
@@ -82,8 +83,19 @@ extension ViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        var currentCell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        if currentCell == nil || currentCell?.detailTextLabel == nil {
+            currentCell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        }
+        
+        guard let cell = currentCell else {
+            return UITableViewCell()
+        }
+        
+        cell.imageView?.image = nil
+        cell.textLabel?.text = nil
+        cell.detailTextLabel?.text = nil
+        
       guard let listSection = ListSection(rawValue: indexPath.section) else {
         assertionFailure("Invalid section")
         return cell
@@ -92,7 +104,16 @@ extension ViewController {
       switch listSection {
       case .launches:
         let launch = self.launches[indexPath.row]
-        cell.textLabel?.text = launch.site
+          cell.textLabel?.text = launch.mission?.name
+          cell.detailTextLabel?.text = launch.site
+            
+          let placeholder = UIImage(named: "placeholder_logo")!
+            
+          if let missionPatch = launch.mission?.missionPatch {
+            cell.imageView?.sd_setImage(with: URL(string: missionPatch)!, placeholderImage: placeholder)
+          } else {
+            cell.imageView?.image = placeholder
+          }
       }
         
       return cell

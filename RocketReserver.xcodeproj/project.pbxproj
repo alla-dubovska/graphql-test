@@ -17,6 +17,7 @@
 		4D5B429525A3413B000DB72E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5B429425A3413B000DB72E /* Network.swift */; };
 		4D5B429A25A34B33000DB72E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5B429925A34B33000DB72E /* DetailViewController.swift */; };
 		4D5B429E25A34D8A000DB72E /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 4D5B429D25A34D8A000DB72E /* TinyConstraints */; };
+		4DC10CE825A44F0800B1E509 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC10CE725A44F0800B1E509 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 			files = (
 				4D5B428625A33D62000DB72E /* Apollo in Frameworks */,
 				4D5B428825A33D62000DB72E /* ApolloWebSocket in Frameworks */,
+				4DC10CE825A44F0800B1E509 /* SDWebImage in Frameworks */,
 				4D5B429E25A34D8A000DB72E /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +103,7 @@
 				4D5B428525A33D62000DB72E /* Apollo */,
 				4D5B428725A33D62000DB72E /* ApolloWebSocket */,
 				4D5B429D25A34D8A000DB72E /* TinyConstraints */,
+				4DC10CE725A44F0800B1E509 /* SDWebImage */,
 			);
 			productName = RocketReserver;
 			productReference = 4D5B426C25A33C68000DB72E /* RocketReserver.app */;
@@ -132,6 +135,7 @@
 			packageReferences = (
 				4D5B428425A33D62000DB72E /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				4D5B429C25A34D8A000DB72E /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				4DC10CE625A44F0800B1E509 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 4D5B426D25A33C68000DB72E /* Products */;
 			projectDirPath = "";
@@ -394,6 +398,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		4DC10CE625A44F0800B1E509 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -411,6 +423,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D5B429C25A34D8A000DB72E /* XCRemoteSwiftPackageReference "TinyConstraints" */;
 			productName = TinyConstraints;
+		};
+		4DC10CE725A44F0800B1E509 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DC10CE625A44F0800B1E509 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
