@@ -97,5 +97,20 @@ extension ViewController {
         
       return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let listSection = ListSection(rawValue: indexPath.section) else {
+          assertionFailure("Invalid section")
+          return
+        }
+          
+        switch listSection {
+        case .launches:
+          let launch = self.launches[indexPath.row]
+            let vc = DetailViewController(launchID: launch.id)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
