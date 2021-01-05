@@ -8,6 +8,7 @@
 import UIKit
 import Apollo
 import TinyConstraints
+import KeychainSwift
 
 class DetailViewController: UIViewController {
     
@@ -23,7 +24,7 @@ class DetailViewController: UIViewController {
     private let missionNameLabel = UILabel()
     private let rocketNameLabel = UILabel()
     private let launchSiteLabel = UILabel()
-    private let bookCancelButton = UIBarButtonItem()
+    private let bookCancelButton = UIButton()
     
     init(launchID: GraphQLID) {
         self.launchID = launchID
@@ -78,21 +79,21 @@ class DetailViewController: UIViewController {
         }
             
         if launch.isBooked {
-            self.bookCancelButton.title = "Cancel trip"
+            self.bookCancelButton.setTitle("Cancel trip", for: .normal)
             self.bookCancelButton.tintColor = .red
         } else {
-            self.bookCancelButton.title = "Book now!"
+            self.bookCancelButton.setTitle("Book now!", for: .normal)
             self.bookCancelButton.tintColor = self.view.tintColor
         }
     }
     
     private func loadLaunchDetails() {
-      guard launchID != self.launch?.id else {
+        guard launchID != self.launch?.id else {
             // This is the launch we're already displaying, or the ID is nil.
             return
-      }
+        }
         
-      Network.shared.apollo.fetch(query: LaunchDetailsQuery(id: launchID)) { [weak self] result in
+        Network.shared.apollo.fetch(query: LaunchDetailsQuery(id: launchID)) { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -112,16 +113,44 @@ class DetailViewController: UIViewController {
         }
     }
     
+    private func isLoggedIn() -> Bool {
+        let keychain = KeychainSwift()
+        return keychain.get(LoginViewController.loginKeychainKey) != nil
+    }
+    
     private func setupViews() {
         view.backgroundColor = .white
         stackView.axis = .vertical
         stackView.spacing = 16
         missionPatchImageView.contentMode = .scaleAspectFit
         view.addSubview(stackView)
-        [missionPatchImageView, missionNameLabel, rocketNameLabel, launchSiteLabel].forEach(stackView.addArrangedSubview)
-        stackView.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
+        [missionPatchImageView, missionNameLabel, rocketNameLabel, launchSiteLabel, bookCancelButton].forEach(stackView.addArrangedSubview)
+        stackView.edgesToSuperview(excluding: .bottom, insets: .uniform(16), usingSafeArea: true)
         
         missionPatchImageView.height(140)
         missionPatchImageView.width(140)
+        
+        self.bookCancelButton.setTitleColor(.blue, for: .normal)
+        self.bookCancelButton.setTitle("Book now!", for: .normal)
+        bookCancelButton.addTarget(self, action: #selector(bookOrCancelTapped), for: .touchUpInside)
+    }
+    
+    @objc private func bookOrCancelTapped() {
+        guard self.isLoggedIn() else {
+            navigationController?.present(LoginViewController(), animated: true, completion: nil)
+            return
+        }
+        
+        guard let launch = self.launch else {
+            // We don't have enough information yet to know
+            // if we're booking or cancelling, bail.
+            return
+        }
+        
+        if launch.isBooked {
+            print("Cancel trip!")
+        } else {
+            print("Book trip!")
+        }
     }
 }

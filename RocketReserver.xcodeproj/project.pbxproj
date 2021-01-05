@@ -19,6 +19,9 @@
 		4D5B429E25A34D8A000DB72E /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 4D5B429D25A34D8A000DB72E /* TinyConstraints */; };
 		4DC10CE825A44F0800B1E509 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC10CE725A44F0800B1E509 /* SDWebImage */; };
 		4DC10CEF25A454AA00B1E509 /* LaunchDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4DC10CEE25A454AA00B1E509 /* LaunchDetails.graphql */; };
+		4DC10CF225A467E200B1E509 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4DC10CF125A467E200B1E509 /* Login.graphql */; };
+		4DC10CF525A4680700B1E509 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC10CF425A4680700B1E509 /* LoginViewController.swift */; };
+		4DC10CF925A468DC00B1E509 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC10CF825A468DC00B1E509 /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,8 @@
 		4D5B429425A3413B000DB72E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4D5B429925A34B33000DB72E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4DC10CEE25A454AA00B1E509 /* LaunchDetails.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchDetails.graphql; sourceTree = "<group>"; };
+		4DC10CF125A467E200B1E509 /* Login.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
+		4DC10CF425A4680700B1E509 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			files = (
 				4D5B428625A33D62000DB72E /* Apollo in Frameworks */,
 				4D5B428825A33D62000DB72E /* ApolloWebSocket in Frameworks */,
+				4DC10CF925A468DC00B1E509 /* KeychainSwift in Frameworks */,
 				4DC10CE825A44F0800B1E509 /* SDWebImage in Frameworks */,
 				4D5B429E25A34D8A000DB72E /* TinyConstraints in Frameworks */,
 			);
@@ -81,6 +87,8 @@
 				4D5B429425A3413B000DB72E /* Network.swift */,
 				4D5B429925A34B33000DB72E /* DetailViewController.swift */,
 				4DC10CEE25A454AA00B1E509 /* LaunchDetails.graphql */,
+				4DC10CF125A467E200B1E509 /* Login.graphql */,
+				4DC10CF425A4680700B1E509 /* LoginViewController.swift */,
 			);
 			path = RocketReserver;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 				4D5B428725A33D62000DB72E /* ApolloWebSocket */,
 				4D5B429D25A34D8A000DB72E /* TinyConstraints */,
 				4DC10CE725A44F0800B1E509 /* SDWebImage */,
+				4DC10CF825A468DC00B1E509 /* KeychainSwift */,
 			);
 			productName = RocketReserver;
 			productReference = 4D5B426C25A33C68000DB72E /* RocketReserver.app */;
@@ -139,6 +148,7 @@
 				4D5B428425A33D62000DB72E /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				4D5B429C25A34D8A000DB72E /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 				4DC10CE625A44F0800B1E509 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4DC10CF725A468DC00B1E509 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 4D5B426D25A33C68000DB72E /* Products */;
 			projectDirPath = "";
@@ -157,6 +167,7 @@
 				4D5B427C25A33C6C000DB72E /* LaunchScreen.storyboard in Resources */,
 				4D5B427925A33C6C000DB72E /* Assets.xcassets in Resources */,
 				4DC10CEF25A454AA00B1E509 /* LaunchDetails.graphql in Resources */,
+				4DC10CF225A467E200B1E509 /* Login.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC10CF525A4680700B1E509 /* LoginViewController.swift in Sources */,
 				4D5B429525A3413B000DB72E /* Network.swift in Sources */,
 				4D5B427425A33C68000DB72E /* ViewController.swift in Sources */,
 				4D5B429A25A34B33000DB72E /* DetailViewController.swift in Sources */,
@@ -410,6 +422,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		4DC10CF725A468DC00B1E509 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -432,6 +452,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4DC10CE625A44F0800B1E509 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		4DC10CF825A468DC00B1E509 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DC10CF725A468DC00B1E509 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
