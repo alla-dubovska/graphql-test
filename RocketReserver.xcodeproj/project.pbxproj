@@ -22,6 +22,11 @@
 		4DC10CF225A467E200B1E509 /* Login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4DC10CF125A467E200B1E509 /* Login.graphql */; };
 		4DC10CF525A4680700B1E509 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC10CF425A4680700B1E509 /* LoginViewController.swift */; };
 		4DC10CF925A468DC00B1E509 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC10CF825A468DC00B1E509 /* KeychainSwift */; };
+		4DC10CFD25A46E5900B1E509 /* TokenAddingInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC10CFC25A46E5900B1E509 /* TokenAddingInterceptor.swift */; };
+		4DC10D0025A46E9500B1E509 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC10CFF25A46E9500B1E509 /* NetworkInterceptorProvider.swift */; };
+		4DC10D0525A4716100B1E509 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC10D0425A4716100B1E509 /* UIViewController+Alert.swift */; };
+		4DC10D0825A471F300B1E509 /* BookTrip.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4DC10D0725A471F300B1E509 /* BookTrip.graphql */; };
+		4DC10D0B25A472DE00B1E509 /* CancelTrip.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4DC10D0A25A472DE00B1E509 /* CancelTrip.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,11 @@
 		4DC10CEE25A454AA00B1E509 /* LaunchDetails.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchDetails.graphql; sourceTree = "<group>"; };
 		4DC10CF125A467E200B1E509 /* Login.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Login.graphql; sourceTree = "<group>"; };
 		4DC10CF425A4680700B1E509 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DC10CFC25A46E5900B1E509 /* TokenAddingInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddingInterceptor.swift; sourceTree = "<group>"; };
+		4DC10CFF25A46E9500B1E509 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
+		4DC10D0425A4716100B1E509 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		4DC10D0725A471F300B1E509 /* BookTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BookTrip.graphql; sourceTree = "<group>"; };
+		4DC10D0A25A472DE00B1E509 /* CancelTrip.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CancelTrip.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +99,11 @@
 				4DC10CEE25A454AA00B1E509 /* LaunchDetails.graphql */,
 				4DC10CF125A467E200B1E509 /* Login.graphql */,
 				4DC10CF425A4680700B1E509 /* LoginViewController.swift */,
+				4DC10CFC25A46E5900B1E509 /* TokenAddingInterceptor.swift */,
+				4DC10CFF25A46E9500B1E509 /* NetworkInterceptorProvider.swift */,
+				4DC10D0425A4716100B1E509 /* UIViewController+Alert.swift */,
+				4DC10D0725A471F300B1E509 /* BookTrip.graphql */,
+				4DC10D0A25A472DE00B1E509 /* CancelTrip.graphql */,
 			);
 			path = RocketReserver;
 			sourceTree = "<group>";
@@ -168,6 +183,8 @@
 				4D5B427925A33C6C000DB72E /* Assets.xcassets in Resources */,
 				4DC10CEF25A454AA00B1E509 /* LaunchDetails.graphql in Resources */,
 				4DC10CF225A467E200B1E509 /* Login.graphql in Resources */,
+				4DC10D0B25A472DE00B1E509 /* CancelTrip.graphql in Resources */,
+				4DC10D0825A471F300B1E509 /* BookTrip.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,11 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC10D0525A4716100B1E509 /* UIViewController+Alert.swift in Sources */,
 				4DC10CF525A4680700B1E509 /* LoginViewController.swift in Sources */,
 				4D5B429525A3413B000DB72E /* Network.swift in Sources */,
+				4DC10CFD25A46E5900B1E509 /* TokenAddingInterceptor.swift in Sources */,
 				4D5B427425A33C68000DB72E /* ViewController.swift in Sources */,
 				4D5B429A25A34B33000DB72E /* DetailViewController.swift in Sources */,
 				4D5B427025A33C68000DB72E /* AppDelegate.swift in Sources */,
+				4DC10D0025A46E9500B1E509 /* NetworkInterceptorProvider.swift in Sources */,
 				4D5B429225A340E5000DB72E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +423,7 @@
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.19.0;
+				minimumVersion = 0.39.0;
 			};
 		};
 		4D5B429C25A34D8A000DB72E /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
